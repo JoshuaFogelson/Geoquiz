@@ -4,10 +4,12 @@ public class Question {
     private int mTextResId;
     private boolean mAnswerTrue;
     private boolean mAnswered;
+    private boolean mCorrect;
 
     public Question (int textResId, boolean answerTrue) {
         this.mTextResId = textResId;
         this.mAnswerTrue = answerTrue;
+        this.mAnswered = false;
     }
 
     public int getTextResId() {
@@ -22,6 +24,11 @@ public class Question {
         return mAnswerTrue;
     }
 
+    public void setAnswerTrue(boolean answerTrue) {
+
+        mAnswerTrue = answerTrue;
+    }
+
     public boolean isAnswered() {
         return mAnswered;
     }
@@ -30,8 +37,11 @@ public class Question {
         mAnswered = answered;
     }
 
-    public void setAnswerTrue(boolean answerTrue) {
+    public boolean isCorrect() {
+        return mCorrect;
+    }
 
-        mAnswerTrue = answerTrue;
+    public void setCorrect(boolean correct) {
+        mCorrect = correct;
     }
 }
