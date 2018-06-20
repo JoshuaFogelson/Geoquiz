@@ -17,9 +17,9 @@ public class CheatActivity extends AppCompatActivity {
     private static final String EXTRA_ANSWER_IS_SHOWN =
             "com.bignerdranch.android.geoquiz.answer_shown";
 
-    public static Intent newIntent(Context packageContext, boolean answerIsTure){
+    public static Intent newIntent(Context packageContext, boolean answerIsTrue){
         Intent intent = new Intent(packageContext, CheatActivity.class);
-        intent.putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTure);
+        intent.putExtra(EXTRA_ANSWER_IS_TRUE, answerIsTrue);
         return intent;
     }
 

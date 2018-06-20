@@ -102,9 +102,11 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (mCurrentIndex>0){
                 mCurrentIndex = (mCurrentIndex - 1) % mQuestionBank.length;
+                mIsCheater=false;
                 updateQuestion();
             }else {
                     mCurrentIndex = mQuestionBank.length - 1;
+                    mIsCheater = false;
                     updateQuestion();
                 }
             }
@@ -208,14 +210,18 @@ public class QuizActivity extends AppCompatActivity {
 
         int messageResId = 0;
 
-        if (userPressedTrue == answerIsTrue) {
-            messageResId = R.string.correct_toast;
-            mQuestionBank[mCurrentIndex].setCorrect(true);
-        } else {
-            messageResId = R.string.incorrect_toast;
-            mQuestionBank[mCurrentIndex].setCorrect(false);
+        if (mIsCheater){
+            messageResId = R.string.judgment_toast;
         }
-
+        else {
+            if (userPressedTrue == answerIsTrue) {
+                messageResId = R.string.correct_toast;
+                mQuestionBank[mCurrentIndex].setCorrect(true);
+            } else {
+                messageResId = R.string.incorrect_toast;
+                mQuestionBank[mCurrentIndex].setCorrect(false);
+            }
+        }
         Toast toast = Toast.makeText(this, messageResId,Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.TOP,0,0);
         toast.show();
