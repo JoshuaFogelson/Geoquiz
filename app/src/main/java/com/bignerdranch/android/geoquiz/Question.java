@@ -5,6 +5,7 @@ public class Question {
     private boolean mAnswerTrue;
     private boolean mAnswered;
     private boolean mCorrect;
+    private boolean mCheated;
 
     public Question (int textResId, boolean answerTrue) {
         this.mTextResId = textResId;
@@ -43,5 +44,13 @@ public class Question {
 
     public void setCorrect(boolean correct) {
         mCorrect = correct;
+    }
+
+    public boolean isCheated() {
+        return mCheated;
+    }
+
+    public void setCheated(boolean cheated) {
+        mCheated = cheated;
     }
 }
